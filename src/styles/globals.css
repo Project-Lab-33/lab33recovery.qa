@@ -1,0 +1,450 @@
+@import "tailwindcss";
+
+/* Custom cursor — only on mouse-capable devices, preserves native cursor for touch/keyboard */
+@media (pointer: fine) {
+  body:not(.admin-layout) {
+    cursor: none;
+  }
+
+  body:not(.admin-layout) a,
+  body:not(.admin-layout) button,
+  body:not(.admin-layout) input,
+  body:not(.admin-layout) textarea,
+  body:not(.admin-layout) select {
+    cursor: none;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+
+@theme {
+  --font-sans: var(--font-tasa-explorer);
+  --font-serif: var(--font-dm-serif);
+  --font-display: var(--font-slabo);
+  /* 1. Primary Base (Deep Warm Void) */
+  --color-abyss-black: #050505;
+  --color-charcoal-core: #0F0E0D;
+  /* Warm undertone */
+  --color-graphite-slate: #1C1B1A;
+
+  /* 2. Primary Text (Soft Luxury) */
+  --color-ice-white: #F5F5F0;
+  /* Off-white, warmer */
+  --color-soft-mist: #A8A29E;
+  /* Stone grey */
+  --color-muted-text: #78716C;
+
+  /* 3. Accent Metallic (The Gold Standard) */
+  --color-gold-primary: #D4AF77;
+  /* Champagne Gold */
+  --color-gold-muted: #8B7355;
+  /* Bronze */
+  --color-gold-dark: #5C4D3C;
+  /* Deep Bronze */
+  --color-gold-light: #F3E5D0;
+  /* Highlight */
+
+  /* 4. Surface Tones (Glass) */
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-glass-surface: rgba(15, 14, 13, 0.6);
+  --color-glass-highlight: rgba(255, 255, 255, 0.03);
+
+  /* 5. Status Colors (Desaturated) */
+  --color-status-success: #3F6251;
+  --color-status-warning: #8C7A5B;
+  --color-status-error: #5C2B2B;
+
+  /* Legacy Mappings (soft migration) */
+  --color-lab-black: #050505;
+  --color-lab-dark: #0F0E0D;
+  --color-lab-cyan: #D4AF77;
+  /* Mapping old cyan to gold for instant retheme */
+  --color-lab-violet: #8B7355;
+  /* Mapping old violet to bronze */
+  --color-lab-glass: rgba(255, 255, 255, 0.03);
+
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-pulse-slow: pulse-glow 6s ease-in-out infinite;
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(212, 175, 119, 0.1);
+      /* Gold glow */
+    }
+
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 40px rgba(212, 175, 119, 0.05);
+    }
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 8s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+
+:root {
+  --background: #FBFBF9;
+  --foreground: #121110;
+  --surface-low: #FFFFFF;
+  --surface-mid: #F5F5F3;
+  --surface-high: #EBEBE9;
+  --border-subtle: rgba(18, 17, 16, 0.04);
+  --border-medium: rgba(18, 17, 16, 0.08);
+  --border-strong: rgba(18, 17, 16, 0.12);
+  --text-primary: #121110;
+  --text-secondary: #5C5855;
+  --text-muted: #A8A29E;
+  --accent-gold: #D4AF77;
+  --accent-gold-dark: #B8860B;
+  --accent-gold-light: #C4A265;
+  --accent-gold-soft: rgba(212, 175, 119, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --table-header: #F5F5F3;
+  --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --background: #18181B;
+  --foreground: #FAFAFA;
+  --surface-low: #1C1C1F;
+  --surface-mid: #232328;
+  --surface-high: #2A2A30;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-medium: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #52525B;
+  --accent-gold: #D4AF77;
+  --accent-gold-dark: #9A7209;
+  --accent-gold-light: #C4A265;
+  --accent-gold-soft: rgba(212, 175, 119, 0.08);
+  --glass-bg: rgba(28, 28, 31, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --table-header: rgba(255, 255, 255, 0.03);
+  --card-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.light {
+  /* Premium Paper - Warm cream base with subtle gradient */
+  --background: #F5F3ED;
+  --foreground: #1A1816;
+
+  /* Surface Hierarchy - Clear depth separation with gradients */
+  --surface-low: #FDFCFA;
+  --surface-mid: #F0EDE5;
+  --surface-high: #E8E4D9;
+
+  /* Borders - More definition */
+  --border-subtle: rgba(26, 24, 22, 0.08);
+  --border-medium: rgba(26, 24, 22, 0.14);
+  --border-strong: rgba(26, 24, 22, 0.22);
+
+  /* Text - Darker for better contrast */
+  --text-primary: #1A1816;
+  --text-secondary: #524F4A;
+  --text-muted: #8A8782;
+
+  /* Gold - Richer in light mode */
+  --accent-gold: #B8941F;
+  --accent-gold-dark: #8A6F17;
+  --accent-gold-light: #C4A233;
+  --accent-gold-soft: rgba(184, 148, 31, 0.14);
+
+  /* Glass Effects */
+  --glass-bg: rgba(253, 252, 250, 0.88);
+  --glass-border: rgba(26, 24, 22, 0.12);
+
+  /* Table & Cards - Distinct layer */
+  --table-header: #EFECEA;
+  --card-shadow: 0 4px 20px -4px rgba(26, 24, 22, 0.12), 0 2px 8px -2px rgba(26, 24, 22, 0.08);
+}
+
+/* Light Mode Premium Gradients - Subtle & Sophisticated */
+.light body {
+  background: linear-gradient(135deg, #F8F6F0 0%, #F2EFE7 50%, #EBE7DC 100%);
+  background-attachment: fixed;
+}
+
+.light aside {
+  background: linear-gradient(180deg, #FDFCFA 0%, #F5F2E9 60%, #EDE9DD 100%);
+}
+
+/* Light mode glow adjustments - warmer and softer */
+.light .grain-overlay {
+  opacity: 0.02;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Form elements don't inherit font by default - force them to */
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #A39E98 0%, #8A8782 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  background-color: transparent !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* DateTime Picker Styling */
+input[type="datetime-local"],
+input[type="date"],
+input[type="time"] {
+  color-scheme: dark;
+  accent-color: var(--accent-gold);
+}
+
+.light input[type="datetime-local"],
+.light input[type="date"],
+.light input[type="time"] {
+  color-scheme: light;
+}
+
+::-webkit-datetime-edit-month-field:focus,
+::-webkit-datetime-edit-day-field:focus,
+::-webkit-datetime-edit-year-field:focus,
+::-webkit-datetime-edit-hour-field:focus,
+::-webkit-datetime-edit-minute-field:focus,
+::-webkit-datetime-edit-ampm-field:focus {
+  background: var(--accent-gold) !important;
+  color: black !important;
+  outline: none !important;
+}
+
+/* Luxury DateTime Override - Hide native controls when custom overlay is present */
+.luxury-datetime input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+.luxury-datetime input[type="date"]::-webkit-calendar-picker-indicator,
+.luxury-datetime input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.luxury-datetime input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper,
+.luxury-datetime input[type="datetime-local"]::-webkit-datetime-edit-text,
+.luxury-datetime input[type="datetime-local"]::-webkit-datetime-edit,
+.luxury-datetime input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+.luxury-datetime input[type="date"]::-webkit-datetime-edit-text,
+.luxury-datetime input[type="date"]::-webkit-datetime-edit,
+.luxury-datetime input[type="time"]::-webkit-datetime-edit-fields-wrapper,
+.luxury-datetime input[type="time"]::-webkit-datetime-edit-text,
+.luxury-datetime input[type="time"]::-webkit-datetime-edit {
+  color: transparent !important;
+  opacity: 0;
+}
+
+.luxury-datetime input[type="datetime-local"]:focus::-webkit-datetime-edit-fields-wrapper,
+.luxury-datetime input[type="datetime-local"]:focus::-webkit-datetime-edit-text,
+.luxury-datetime input[type="datetime-local"]:focus::-webkit-datetime-edit {
+  color: var(--text-primary) !important;
+  opacity: 1;
+}
+
+.luxury-datetime input[type="date"]:focus::-webkit-datetime-edit-fields-wrapper,
+.luxury-datetime input[type="date"]:focus::-webkit-datetime-edit-text,
+.luxury-datetime input[type="date"]:focus::-webkit-datetime-edit,
+.luxury-datetime input[type="time"]:focus::-webkit-datetime-edit-fields-wrapper,
+.luxury-datetime input[type="time"]:focus::-webkit-datetime-edit-text,
+.luxury-datetime input[type="time"]:focus::-webkit-datetime-edit {
+  color: var(--text-primary) !important;
+  opacity: 1;
+}
+
+input[type="date"],
+input[type="time"] {
+  caret-color: var(--accent-gold);
+}
+
+::selection {
+  background-color: var(--accent-gold);
+  color: black;
+}
+
+/* Utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom thin scrollbar for content panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+.light .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.light .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}
+
+.light .custom-scrollbar {
+  scrollbar-color: rgba(0, 0, 0, 0.08) transparent;
+}
+
+/* Dashboard utilities */
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+
+  100% {
+    transform: translateX(150%) skewX(-20deg);
+  }
+}
+
+.mask-fade-right {
+  mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
+
+.mask-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+
+/* Pipeline / kanban utilities */
+
+/* Shared scrollbar for pipeline columns */
+.pipeline-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.pipeline-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pipeline-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 119, 0.4);
+  border-radius: 4px;
+}
+
+.pipeline-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 119, 0.7);
+}
+
+.pipeline-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 119, 0.4) transparent;
+}
+
+/* Viewport-adaptive kanban container — prevents page scroll,
+   columns scroll internally. 220px accounts for layout header,
+   padding, and page header. */
+.pipeline-container {
+  height: calc(100vh - 220px);
+  overflow: hidden;
+}
+
