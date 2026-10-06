@@ -268,12 +268,12 @@ export default function HomeClient() {
                             transition={{ delay: 2.0, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
                             className="mt-8"
                         >
-                            <Link href="/waitlist"
+                            <Link href="https://apps.apple.com/gb/app/the-lab-33/id6761324375"
                                 className="group no-underline relative overflow-hidden inline-flex items-center gap-3 px-8 py-4 border border-[#D4AF77]/30 hover:border-[#D4AF77]/70 transition-all duration-600"
                             >
                                 <div className="absolute inset-0 bg-[#D4AF77]/[0.05] group-hover:bg-[#D4AF77]/[0.12] transition-colors duration-500" />
                                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-[#D4AF77]/15 to-transparent transition-transform duration-700 pointer-events-none" />
-                                <span className="font-serif text-[11px] tracking-[0.5em] uppercase text-[#D4AF77] relative z-10">Join Waitlist</span>
+                                <span className="font-serif text-[11px] tracking-[0.5em] uppercase text-[#D4AF77] relative z-10">Download the App</span>
                                 <svg viewBox="0 0 16 16" fill="none" width="9" height="9" className="text-[#D4AF77]/50 group-hover:text-[#D4AF77] group-hover:translate-x-1 transition-all duration-400 relative z-10">
                                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
@@ -654,12 +654,12 @@ export default function HomeClient() {
                                     Early members get priority booking and founding rates — locked in permanently.
                                 </p>
                                 <div className="flex items-center gap-3 shrink-0">
-                                    <Link href="/waitlist"
+                                    <Link href="https://apps.apple.com/gb/app/the-lab-33/id6761324375"
                                         className="group no-underline relative overflow-hidden inline-flex items-center gap-3 px-8 py-4 border border-[#D4AF77]/45 hover:border-[#D4AF77]/80 transition-all duration-500"
                                     >
                                         <div className="absolute inset-0 bg-[#D4AF77]/[0.07] group-hover:bg-[#D4AF77]/12 transition-colors duration-500" />
                                         <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-[#D4AF77]/15 to-transparent transition-transform duration-700 pointer-events-none" />
-                                        <span className="font-serif text-[12px] tracking-[0.45em] uppercase text-[#D4AF77] relative z-10">Secure My Spot</span>
+                                        <span className="font-serif text-[12px] tracking-[0.45em] uppercase text-[#D4AF77] relative z-10">Download the App</span>
                                         <svg viewBox="0 0 16 16" fill="none" width="10" height="10" className="text-[#D4AF77]/70 group-hover:text-[#D4AF77] group-hover:translate-x-0.5 transition-all relative z-10">
                                             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
@@ -676,7 +676,7 @@ export default function HomeClient() {
                                     {[
                                         { label: "About", href: "/about" },
                                         { label: "Contact", href: "/contact" },
-                                        { label: "Waitlist", href: "/waitlist" },
+                                        { label: "Download App", href: "https://apps.apple.com/gb/app/the-lab-33/id6761324375" },
                                     ].map(l => (
                                         <Link key={l.label} href={l.href}
                                             className="no-underline font-serif text-[11px] tracking-[0.4em] uppercase text-white/28 hover:text-white/60 transition-colors"

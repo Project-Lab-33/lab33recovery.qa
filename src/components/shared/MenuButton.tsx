@@ -395,11 +395,11 @@ export default function MenuButton({ contained = false }: { contained?: boolean 
                                     transition={{ delay: 0.45, duration: 0.45, ease: "easeOut" }}
                                 >
                                     <div className="grid grid-cols-2 gap-2 mb-4">
-                                        <Link href="/waitlist" onClick={() => setIsOpen(false)}
+                                        <Link href="https://apps.apple.com/gb/app/the-lab-33/id6761324375" onClick={() => setIsOpen(false)}
                                             className="group no-underline flex flex-col gap-1 px-3 py-3.5 rounded-xl border border-[#D4AF77]/25 bg-[#D4AF77]/[0.04] active:bg-[#D4AF77]/[0.08] transition-all">
                                             <span className="text-[8px] tracking-[0.4em] uppercase font-serif text-[#8B7355]">Membership</span>
                                             <div className="flex items-center justify-between">
-                                                <span className="font-serif text-sm font-light text-[#F5F5F0]/80 group-active:text-[#D4AF77] transition-colors">Join Waitlist</span>
+                                                <span className="font-serif text-sm font-light text-[#F5F5F0]/80 group-active:text-[#D4AF77] transition-colors">Download the App</span>
                                                 <svg viewBox="0 0 16 16" fill="none" width="10" height="10" className="text-[#D4AF77]/50 shrink-0">
                                                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                                                 </svg>
@@ -453,7 +453,7 @@ export default function MenuButton({ contained = false }: { contained?: boolean 
                                             <div className="h-[1px] bg-gradient-to-r from-[#D4AF77]/25 via-[#D4AF77]/10 to-transparent mb-5" />
                                             <div className="flex items-stretch gap-3">
 
-                                                <Link href="/waitlist" onClick={() => setIsOpen(false)}
+                                                <Link href="https://apps.apple.com/gb/app/the-lab-33/id6761324375" onClick={() => setIsOpen(false)}
                                                     className="group/w relative no-underline flex-1 overflow-hidden flex flex-col justify-between gap-3 px-5 py-4
                                                                bg-gradient-to-br from-[#D4AF77]/18 via-[#D4AF77]/10 to-[#8B7355]/8
                                                                border border-[#D4AF77]/35 hover:border-[#D4AF77]/70
@@ -471,7 +471,7 @@ export default function MenuButton({ contained = false }: { contained?: boolean 
                                                         </span>
                                                     </div>
                                                     <div className="relative z-10">
-                                                        <p className="font-serif text-xl font-light leading-tight text-[#F5F5F0] group-hover/w:text-[#D4AF77] transition-colors duration-300">Join Waitlist</p>
+                                                        <p className="font-serif text-xl font-light leading-tight text-[#F5F5F0] group-hover/w:text-[#D4AF77] transition-colors duration-300">Download the App</p>
                                                         <p className="text-[9px] font-sans text-[#8B7355] tracking-wide mt-0.5">Opening Q2 2026 · Porto Arabia</p>
                                                     </div>
                                                     <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#D4AF77]/50 via-[#D4AF77]/20 to-transparent

@@ -503,12 +503,12 @@ export default function HotTubClient() {
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
                                 <Link
-                                    href="/waitlist"
+                                    href="https://apps.apple.com/gb/app/the-lab-33/id6761324375"
                                     className="group/cta no-underline relative overflow-hidden inline-flex items-center gap-3 px-8 py-4 border border-[#AA8352]/40 bg-[#AA8352]/[0.06] hover:border-[#AA8352]/70 hover:bg-[#AA8352]/10 transition-all duration-500"
                                 >
                                     <div className="absolute inset-0 -translate-x-full group-hover/cta:translate-x-full bg-gradient-to-r from-transparent via-[#AA8352]/10 to-transparent transition-transform duration-[800ms] pointer-events-none" />
                                     <span className="font-serif text-[15px] tracking-[0.4em] uppercase text-[#AA8352] relative z-10">
-                                        Join Waitlist
+                                        Download the App
                                     </span>
                                     <svg viewBox="0 0 16 16" fill="none" width="11" height="11" className="text-[#AA8352]/90 group-hover/cta:text-[#AA8352] transition-colors relative z-10">
                                         <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
